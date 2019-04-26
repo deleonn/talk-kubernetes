@@ -7,8 +7,7 @@ import {
   Cite,
   Deck,
   Heading,
-  ListItem,
-  List,
+  Image,
   Quote,
   Slide,
   Text,
@@ -17,15 +16,25 @@ import {
 // Import theme
 import createTheme from 'spectacle/lib/themes/default';
 
+// Assets
+import nodes from './nodes.png';
+import cluster from './cluster.png';
+import volumes from './volumes.png';
+import containers from './containers.png';
+import pods from './pods.png';
+import deployments from './deployments.png';
+import ingress from './ingress.png';
+
 // Require CSS
 require('normalize.css');
 
 const theme = createTheme(
   {
-    primary: 'white',
-    secondary: '#1F2022',
-    tertiary: '#03A9FC',
-    quaternary: '#CECECE',
+    secondary: '#23007B',
+    primary: '#050412',
+    white: '#F7F7F7',
+    darkgray: '#1F2022',
+    lightgray: '#CECECE',
   },
   {
     primary: 'Montserrat',
@@ -41,53 +50,79 @@ export default class Presentation extends React.Component {
         transitionDuration={500}
         theme={theme}
       >
-        <Slide transition={['zoom']} bgColor="primary">
+        <Slide transition={['zoom']} bgColor="primary" style={{background: 'linear-gradient(135deg, #050412, #23007B'}}>
           <Heading size={1} fit caps lineHeight={1} textColor="secondary">
-            Spectacle Boilerplate
+            Intro a <Text textColor="white">Kubernetes</Text>
           </Heading>
-          <Text margin="10px 0 0" textColor="tertiary" size={1} fit bold>
-            open the presentation/index.js file to get started
-          </Text>
+          <Text textSize={14} textColor="gray">&#40;Abreviado K8s pa' la raza&#41;</Text>
         </Slide>
-        <Slide transition={['fade']} bgColor="tertiary">
-          <Heading size={6} textColor="primary" caps>
-            Typography
+        <Slide transition={['fade']} bgColor="secondary">
+          <Heading size={1} fit textColor="white" caps>
+            ¿Qué es Kubernetes?
           </Heading>
-          <Heading size={1} textColor="secondary">
-            Heading 1
-          </Heading>
-          <Heading size={2} textColor="secondary">
-            Heading 2
-          </Heading>
-          <Heading size={3} textColor="secondary">
-            Heading 3
-          </Heading>
-          <Heading size={4} textColor="secondary">
-            Heading 4
-          </Heading>
-          <Heading size={5} textColor="secondary">
-            Heading 5
-          </Heading>
-          <Text size={6} textColor="secondary">
-            Standard text
-          </Text>
         </Slide>
-        <Slide transition={['fade']} bgColor="primary" textColor="tertiary">
-          <Heading size={6} textColor="secondary" caps>
-            Standard List
-          </Heading>
-          <List>
-            <ListItem>Item 1</ListItem>
-            <ListItem>Item 2</ListItem>
-            <ListItem>Item 3</ListItem>
-            <ListItem>Item 4</ListItem>
-          </List>
-        </Slide>
-        <Slide transition={['fade']} bgColor="secondary" textColor="primary">
+        <Slide transition={['fade']} bgColor="primary">
           <BlockQuote>
-            <Quote>Example Quote</Quote>
-            <Cite>Author</Cite>
+            <Quote textSize={36} textColor="white">Es un sistema de código abierto para automatizar la implementación, el escalado y la administración de aplicaciones en contenedores.</Quote>
+            <Cite>kubernetes.io</Cite>
           </BlockQuote>
+        </Slide>
+        <Slide transition={['fade']} bgColor="primary">
+          <Heading size={1} fit textColor="white" caps>
+            Hardware
+          </Heading>
+        </Slide>
+        <Slide transition={['fade']} bgColor="white">
+          <Heading size={6} textColor="primary">
+            Nodos
+          </Heading>
+          <Image fit src={nodes} height='70%' width='70%' />
+        </Slide>
+        <Slide transition={['fade']} bgColor="white">
+          <Heading size={6} textColor="primary">
+            Cluster
+          </Heading>
+          <Image fit src={cluster} height='70%' width='70%' />
+        </Slide>
+        <Slide transition={['fade']} bgColor="white">
+          <Heading size={6} textColor="primary">
+            Volumenes Persistentes
+          </Heading>
+          <Image fit src={volumes} height='70%' width='70%' />
+        </Slide>
+        <Slide transition={['fade']} bgColor="primary">
+          <Heading size={1} fit textColor="white" caps>
+            Software
+          </Heading>
+        </Slide>
+        <Slide transition={['fade']} bgColor="white">
+          <Heading size={6} textColor="primary">
+            Containeres
+          </Heading>
+          <Image fit src={containers} height='70%' width='70%' />
+        </Slide>
+        <Slide transition={['fade']} bgColor="white">
+          <Heading size={6} textColor="primary">
+            Pods
+          </Heading>
+          <Image fit src={pods} height='70%' width='70%' />
+        </Slide>
+        <Slide transition={['fade']} bgColor="white">
+          <Heading size={6} textColor="primary">
+            Deployments
+          </Heading>
+          <Image fit src={deployments} height='70%' width='70%' />
+        </Slide>
+        <Slide transition={['fade']} bgColor="white">
+          <Heading size={6} textColor="primary">
+            Ingress
+          </Heading>
+          <Image fit src={ingress} height='70%' width='70%' />
+        </Slide>
+        <Slide transition={['zoom']} bgColor="primary">
+          <Heading size={1} fit caps lineHeight={1} textColor="white">
+            Hands on
+          </Heading>
         </Slide>
       </Deck>
     );
